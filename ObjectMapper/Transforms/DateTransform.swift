@@ -36,11 +36,11 @@ public class DateTransform: TransformType {
 
 	public func transformFromJSON(value: AnyObject?) -> NSDate? {
 		if let timeInt = value as? Double {
-			return NSDate(timeIntervalSince1970: NSTimeInterval(timeInt))
+			return NSDate(timeIntervalSince1970: NSTimeInterval(timeInt/1000.0))
 		}
 		
 		if let timeStr = value as? String {
-			return NSDate(timeIntervalSince1970: NSTimeInterval(atof(timeStr)))
+			return NSDate(timeIntervalSince1970: NSTimeInterval(atof(timeStr)/1000.0))
 		}
 		
 		return nil
